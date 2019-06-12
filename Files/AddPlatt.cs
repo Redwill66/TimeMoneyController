@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace TimeMoneyController
 {
-    public partial class AddPlatt : Form
+    public partial class frmAddPlatt : Form
     {
-        public AddPlatt()
+        public frmAddPlatt()
         {
             InitializeComponent();
+        }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
+            frmAddGame fnp = new frmAddGame();
+            Hide();
+            fnp.ShowDialog();
+            Close();
         }
     }
 }

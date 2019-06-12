@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TimeMoneyController
 {
-    public partial class frmRangliste : Form
+    public partial class frmSpieleintragveraendern : Form
     {
-        public frmRangliste()
+        public frmSpieleintragveraendern()
         {
             InitializeComponent();
         }

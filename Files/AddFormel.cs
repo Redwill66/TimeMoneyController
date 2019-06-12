@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace TimeMoneyController
 {
-    public partial class AddFormel : Form
+    public partial class frmAddFormel : Form
     {
-        public AddFormel()
+        public frmAddFormel()
         {
             InitializeComponent();
+        }
+
+        private void btnback_Click(object sender, EventArgs e)
+        {
+            frmAddGenre fnp = new frmAddGenre();
+            Hide();
+            fnp.ShowDialog();
+            Close();
         }
     }
 }
