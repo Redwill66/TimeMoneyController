@@ -9,6 +9,8 @@ namespace TimeMoneyController
 {
     class Playerfunk
     {
+     //   string Usermail;
+       // string Userpassword; 
         public void Register(string Name, string Surname, string Email, string Passw)
         {
             PlaGaDBfunk PlaGaDB = new PlaGaDBfunk();
@@ -22,6 +24,19 @@ namespace TimeMoneyController
      
             connn.ExecuteNonQuery();
         }
+       /* public string PlayerLogin()
+        {
+            if (Usermail!=null)
+            {
+                return Usermail;
+            }
+            else
+            {
+                return "Hallo";
+            }
+          
+        }*/
+
         public bool Login(string Email, string Passw)
         {
             bool isUserExisted = false;
@@ -45,6 +60,8 @@ namespace TimeMoneyController
                 }
 
             }
+        //    Usermail = Email;
+          //  Userpassword = Passw;
             return isUserExisted;
             // reader = connn.ExecuteReader();
 

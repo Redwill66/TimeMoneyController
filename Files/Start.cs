@@ -16,7 +16,11 @@ namespace TimeMoneyController
         {
             InitializeComponent();
         }
-
+        public static class LoginInfo
+        {
+           
+            public static string UserEmail;
+        }
         private void btnRegister_Click(object sender, EventArgs e)
         {
             frmRegister fnp = new frmRegister();
@@ -65,6 +69,11 @@ namespace TimeMoneyController
             Close();
         }
 
+        private void frmStart_Load(object sender, EventArgs e)
+        {
+            Playerfunk PFunktion = new Playerfunk();
 
+            lbltest.Text = "Willkommen "+LoginInfo.UserEmail;
+        }
     }
 }

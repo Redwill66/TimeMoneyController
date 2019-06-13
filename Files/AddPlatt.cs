@@ -24,5 +24,17 @@ namespace TimeMoneyController
             fnp.ShowDialog();
             Close();
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            NewGameFunk startFunktion = new NewGameFunk();
+          
+            startFunktion.AddPlatt( txtplatt.Text);
+        }
+
+        private void txtplatt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static TimeMoneyController.frmStart;
 
 namespace TimeMoneyController
 {
@@ -44,6 +45,25 @@ namespace TimeMoneyController
             Hide();
             fnp.ShowDialog();
             Close();
+        }
+
+        private void frmAddGame_Load(object sender, EventArgs e)
+        {
+            NewGameFunk startFunktion = new NewGameFunk();
+            DataTable dt = startFunktion.LoadPlatt();
+            cboPlattform.DisplayMember = "Plattform";
+            cboPlattform.DataSource = dt;
+            DataTable dt2 = startFunktion.LoadGenre(LoginInfo.UserEmail);
+            cboGenre.DisplayMember = "Genre";
+            cboGenre.DataSource = dt2;
+            lblmulti.Text= startFunktion.Multipli(LoginInfo.UserEmail, cboGenre.Text);
+
+        }
+
+        private void cboGenre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            NewGameFunk startFunktion = new NewGameFunk();
+            lblmulti.Text = startFunktion.Multipli(LoginInfo.UserEmail, cboGenre.Text);
         }
     }
 }

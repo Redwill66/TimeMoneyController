@@ -32,5 +32,51 @@ namespace TimeMoneyController
                 return conn;
             }
         }
+        public SqlCommand NewFormel()
+        {
+            string conns = ("INSERT INTO Genre (MoneyTimeRech,Genre,PID) VALUES(@MoneyTimeRech,@Genre,( Select Id From Player where Email = @Email))");
+            using (var conn = new SqlCommand(conns, Conect()))
+            {
+                return conn;
+            }
+        }
+        public SqlCommand NewPL()
+        {
+            string conns = ("INSERT INTO Plattform (Plattform) VALUES(@Plattform)");
+            using (var conn = new SqlCommand(conns, Conect()))
+            {
+                return conn;
+            }
+        }
+        public SqlCommand Platt()
+        {
+            string conns = ("Select Id, Plattform from Plattform");
+            using (var conn = new SqlCommand(conns, Conect()))
+            {
+                return conn;
+            }
+
+        }
+        //string conns = (" select AbsenceReason, sum(Timespan)  from Stamp_User_Absence " + " LEFT Join User_Absence ON Stamp_User_Absence.UAId  = User_Absence.Id  " + " Left Join Stamp ON Stamp_User_Absence.[SId] = Stamp.id " + " Left  Join [User] ON User_Absence.[UId] = [User].[Id] " + " Left Join [Absence] ON User_Absence.AId = Absence.Id " + "where Not AbsenceReason ='null' And Email =@Email And  (DATEPART(mm, StampAnw) = @Day) " + " Group by AbsenceReason ");
+          //  using (var conn = new SqlCommand(conns, Conect()))
+           // {
+        public SqlCommand Genre()
+        {
+            string conns = ("Select Genre,MoneyTimeRech from Genre" + " LEFT Join Player ON Genre.PId  = Player.Id " + "where Email = @Email");
+            using (var conn = new SqlCommand(conns, Conect()))
+            {
+                return conn;
+            }
+
+        }
+        public SqlCommand Multiplo()
+        {
+            string conns = ("Select MoneyTimeRech from Genre" + " LEFT Join Player ON Genre.PId  = Player.Id " + "where Email = @Email and Genre = @Genre");
+            using (var conn = new SqlCommand(conns, Conect()))
+            {
+                return conn;
+            }
+
+        }
     }
 }

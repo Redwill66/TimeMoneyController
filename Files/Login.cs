@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static TimeMoneyController.frmStart;
 
 namespace TimeMoneyController
 {
@@ -17,6 +18,8 @@ namespace TimeMoneyController
         {
             InitializeComponent();
         }
+    
+
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -41,15 +44,20 @@ namespace TimeMoneyController
                 if (isUserExisted == true)
                 {
 
-                 //   LoginInfo.UserEmail = txtEmail.Text;
-                 //   startFunktion.LoadDays(LoginInfo.UserEmail);
-                 //   lblsucess.Text = "Login Erfolgreich, Willkommen " + LoginInfo.UserEmail;
+                    LoginInfo.UserEmail = txtEmail.Text;
+                 // startFunktion.LoadDays(LoginInfo.UserEmail);
+                //   lblsucess.Text = "Login Erfolgreich, Willkommen " + LoginInfo.UserEmail;
                 }
                 else
                 {
                    // lblsucess.Text = "Login fehlgeschlagen, User existiert nicht oder ihr Passwort ist Falsch";
                 }
             }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
