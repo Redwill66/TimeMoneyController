@@ -101,6 +101,39 @@ namespace TimeMoneyController
 
 
 
+
+        }
+        public void CreateGame(string Name, string Genre )
+        {
+            PlaGaDBfunk PlaGaDB = new PlaGaDBfunk();
+            var connn = PlaGaDB.NewGame();
+            connn.Parameters.AddWithValue("@Game", Name);
+            connn.Parameters.AddWithValue("@Genre", Genre);
+            connn.ExecuteNonQuery();
+        }
+        public void CreateGame2(string Name, string Platt)
+        {
+            PlaGaDBfunk PlaGaDB = new PlaGaDBfunk();
+            var connn = PlaGaDB.NewGame2();
+            connn.Parameters.AddWithValue("@Game", Name);
+            connn.Parameters.AddWithValue("@Plattform", Platt);
+            connn.ExecuteNonQuery();
+        }
+    
+        public void CreateGame3(string Name, decimal Price,int PlayTime, string Email,int Bewertung, decimal Result, bool Finish, string Wertung)
+        {
+            PlaGaDBfunk PlaGaDB = new PlaGaDBfunk();
+            var connn = PlaGaDB.NewGame3();
+            connn.Parameters.AddWithValue("@Bewertung", Bewertung);
+            connn.Parameters.AddWithValue("@Price", Price);
+            connn.Parameters.AddWithValue("@PlayTime", PlayTime);
+            connn.Parameters.AddWithValue("@Finish", Finish);
+            connn.Parameters.AddWithValue("@Email", Email);
+            connn.Parameters.AddWithValue("@Game", Name);
+            connn.Parameters.AddWithValue("@Result", Result);
+            connn.Parameters.AddWithValue("@Wertung", Wertung);
+
+            connn.ExecuteNonQuery();
         }
     }
 }

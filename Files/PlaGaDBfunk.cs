@@ -78,5 +78,30 @@ namespace TimeMoneyController
             }
 
         }
+        public SqlCommand NewGame()
+        {
+            string conns = ("INSERT INTO Game (Game,GeId) VALUES(@Game,( Select Id From Genre where Genre = @Genre))");
+            using (var conn = new SqlCommand(conns, Conect()))
+            {
+                return conn;
+            }
+        }
+        public SqlCommand NewGame2()
+        {
+            string conns = ("INSERT INTO Plattform_Game (PaId,GId) VALUES(( Select Id From Plattform where Plattform = @Plattform),( Select Id From Game where Game = @Game))");
+            using (var conn = new SqlCommand(conns, Conect()))
+            {
+                return conn;
+            }
+        }
+        public SqlCommand NewGame3()
+        {
+            string conns = ("INSERT INTO Player_Formel_Game (Bewertung,Price,PlayTime,Finish,PId,GId,Result,WId) VALUES(@Bewertung,@Price,@PlayTime,@Finish,( Select Id From Player where Email = @Email),( Select Id From Game where Game = @Game),@Result,( Select Id From Wertung where Wertung = @Wertung))");
+            using (var conn = new SqlCommand(conns, Conect()))
+            {
+                return conn;
+            }
+        }
+
     }
 }

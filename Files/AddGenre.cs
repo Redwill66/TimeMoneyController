@@ -30,9 +30,9 @@ namespace TimeMoneyController
 
         private void btnmulti_Click(object sender, EventArgs e)
         {
-            frmAddFormel fnp = new frmAddFormel();
+           // frmAddFormel fnp = new frmAddFormel();
             Hide();
-            fnp.ShowDialog();
+        //    fnp.ShowDialog();
             Close();
         }
         

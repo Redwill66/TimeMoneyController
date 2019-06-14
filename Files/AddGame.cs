@@ -65,5 +65,50 @@ namespace TimeMoneyController
             NewGameFunk startFunktion = new NewGameFunk();
             lblmulti.Text = startFunktion.Multipli(LoginInfo.UserEmail, cboGenre.Text);
         }
+        string happy;
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            decimal R;
+            decimal P = decimal.Parse(txtPrice.Text);
+            int T = int.Parse(txtTime.Text);
+            decimal Ti = decimal.Parse(txtTime.Text);
+            decimal F = decimal.Parse(lblmulti.Text);
+            if (rdohappy.Checked)
+            {
+                happy = "Yes";
+                 R =  Ti/P * F*2;
+            }
+            else if (rdounhappy.Checked)
+            {
+                happy = "No";
+                 R = Ti / P * F/2;
+            }
+            else if (rdososo.Checked)
+            {
+                happy = "Maybe";
+                 R = Ti / P * F;
+            }
+            else
+            {
+                happy = "Nothing";
+                 R = Ti / P * F;
+            }
+           
+            NewGameFunk startFunktion = new NewGameFunk();
+            startFunktion.CreateGame(txtName.Text,cboGenre.Text);
+            startFunktion.CreateGame2(txtName.Text, cboPlattform.Text);
+
+            startFunktion.CreateGame3(txtName.Text, P, T, LoginInfo.UserEmail, trbPoints.Value, R, chkfin.Checked,happy);
+        }
+
+        private void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTime_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
