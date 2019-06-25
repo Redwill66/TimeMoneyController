@@ -19,9 +19,9 @@ namespace TimeMoneyController
 
         private void btnback_Click(object sender, EventArgs e)
         {
-            frmAddGame fnp = new frmAddGame();
+        //    frmAddGame fnp = new frmAddGame();
             Hide();
-            fnp.ShowDialog();
+           // fnp.ShowDialog();
             Close();
         }
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static TimeMoneyController.frmStart;
 
 namespace TimeMoneyController
 {
@@ -48,9 +49,9 @@ namespace TimeMoneyController
             else if (isValid2 && isValid  && txtPasswwie.Text != null && txtPassw.Text != null && txtEmail.Text != null && txtSurname.Text != null && txtName.Text != null)
             {
                 Playerfunk startFunktion = new Playerfunk();
-             //   startFunktion.Update(txtName.Text, txtSurname.Text, LoginInfo.UserEmail, txtEmail.Text, txtPassw.Text, txtMon.Text, txtDie.Text, txtMit.Text, txtDon.Text, txtFri.Text, txtPensum.Text);
+                startFunktion.Update(txtName.Text, txtSurname.Text, LoginInfo.UserEmail, txtEmail.Text, txtPassw.Text);
            //     lblsucess.Text = "User erfolgreich bearbeitet";
-             //   LoginInfo.UserEmail = txtEmail.Text;
+                LoginInfo.UserEmail = txtEmail.Text;
             }
             else
             {

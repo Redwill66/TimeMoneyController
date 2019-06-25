@@ -72,8 +72,40 @@ namespace TimeMoneyController
         private void frmStart_Load(object sender, EventArgs e)
         {
             Playerfunk PFunktion = new Playerfunk();
+           // lblLog.Text = "Willkommen" + " " + LoginInfo.UserEmail;
+            if (LoginInfo.UserEmail != null)
+            {
+                btnLogin.Enabled = false;
+                btnRegister.Enabled = false;
+                btnUpdate.Enabled = true;
+                btnEintrag.Enabled = true;
+                btnRang.Enabled = true;
+                btnchange.Enabled = true;
+                btnLogin.Visible = false;
+                btnRegister.Visible = false;
+                btnUpdate.Visible = true;
+                btnlogout.Enabled = true;
+                btnlogout.Visible = true;
+            }
 
             lbltest.Text = "Willkommen "+LoginInfo.UserEmail;
+        }
+
+        private void btnlogout_Click(object sender, EventArgs e)
+        {
+            LoginInfo.UserEmail = null;
+            lblLog.Text = "Willkommen" + " " + LoginInfo.UserEmail;
+            btnLogin.Enabled = true;
+            btnRegister.Enabled = true;
+            btnUpdate.Enabled = false;
+            btnEintrag.Enabled = false;
+            btnRang.Enabled = false;
+            btnchange.Enabled = false;
+            btnLogin.Visible = true;
+            btnRegister.Visible = true;
+            btnUpdate.Visible = false;
+            btnlogout.Enabled = false;
+            btnlogout.Visible = false;
         }
     }
 }

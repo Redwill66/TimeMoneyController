@@ -71,5 +71,19 @@ namespace TimeMoneyController
             //   return Suc;
 
         }
+        public void Update(string Name, string Surname, string ExEmail, string Email, string Passw)
+        {
+            PlaGaDBfunk PlaGaDB = new PlaGaDBfunk();
+            var connn = PlaGaDB.ChangeUser();
+
+
+            connn.Parameters.AddWithValue("@Name", Name);
+            connn.Parameters.AddWithValue("@Surname", Surname);
+            connn.Parameters.AddWithValue("@Email", Email);
+            connn.Parameters.AddWithValue("@ExEmail", ExEmail);
+            connn.Parameters.AddWithValue("@Password", Passw);
+
+            connn.ExecuteNonQuery();
+        }
     }
 }

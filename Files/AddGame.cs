@@ -34,17 +34,17 @@ namespace TimeMoneyController
         private void btnplatt_Click(object sender, EventArgs e)
         {
             frmAddPlatt fnp = new frmAddPlatt();
-            Hide();
+          //  Hide();
             fnp.ShowDialog();
-            Close();
+           // Close();
         }
 
         private void btnGenre_Click(object sender, EventArgs e)
         {
             frmAddGenre fnp = new frmAddGenre();
-            Hide();
+          //  Hide();
             fnp.ShowDialog();
-            Close();
+          //  Close();
         }
 
         private void frmAddGame_Load(object sender, EventArgs e)
@@ -75,17 +75,17 @@ namespace TimeMoneyController
             decimal F = decimal.Parse(lblmulti.Text);
             if (rdohappy.Checked)
             {
-                happy = "Yes";
+                happy = "Gut";
                  R =  Ti/P * F*2;
             }
             else if (rdounhappy.Checked)
             {
-                happy = "No";
+                happy = "Schlecht";
                  R = Ti / P * F/2;
             }
             else if (rdososo.Checked)
             {
-                happy = "Maybe";
+                happy = "Ok";
                  R = Ti / P * F;
             }
             else
@@ -99,6 +99,7 @@ namespace TimeMoneyController
             startFunktion.CreateGame2(txtName.Text, cboPlattform.Text);
 
             startFunktion.CreateGame3(txtName.Text, P, T, LoginInfo.UserEmail, trbPoints.Value, R, chkfin.Checked,happy);
+            startFunktion.UpdateBill(LoginInfo.UserEmail);
         }
 
         private void txtPrice_TextChanged(object sender, EventArgs e)
@@ -107,6 +108,11 @@ namespace TimeMoneyController
         }
 
         private void txtTime_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
         {
 
         }
